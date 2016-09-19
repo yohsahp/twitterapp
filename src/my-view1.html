@@ -24,14 +24,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="card">
       <div class="circle">1</div>
       <h1>Twitter Posting</h1>
-      
-      
+      <p>multiple methods below</p>
+
+      <h2>Simplest (using existing code templates)</h2>
+      <p>Seperate window</p>
+      <a class="twitter-share-button"
+        href="https://twitter.com/intent/tweet?text={{tweet}}&hashtags={{hashes}}"
+        target="_blank">
+      <paper-button style="background-color: #006d57;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;" raised>POST</paper-button></a>
+
+      <h3>Pre-enter text (optional)</h3>
+      <paper-textarea maxlength="140" char-counter label="Tweet Text" value="{{tweet}}"></paper-textarea>
+      <paper-textarea label="Hashtags (seperate w/ comma)" value="{{hashes}}"></paper-textarea>
+
+      <h2>Using oAuth</h2>
     </div>
   </template>
 
   <script>
     Polymer({
-      is: 'my-view1'
+      is: 'my-view1',
+
+      properties: {
+        tweet: {
+          type: String,
+        }
+      }
     });
   </script>
 </dom-module>
